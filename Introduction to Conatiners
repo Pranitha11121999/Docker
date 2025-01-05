@@ -1,0 +1,62 @@
+### Containers vs. Hypervisors
+
+#### **Hypervisor-Based Virtualization**:
+1. **Physical Server**: A hardware machine with allocated resources (e.g., 100GB storage, 100 CPUs).
+2. **Hypervisor**:
+   - Software layer that enables virtualization.
+   - Installed on the physical server to host multiple virtual machines (VMs).
+3. **Virtual Machines (VMs)**:
+   - Each VM is allocated a portion of the physical server's resources (e.g., 25GB storage, 25 CPUs for 4 VMs).
+   - Each VM has its **own operating system** and virtualized hardware.
+
+**Drawback**: VMs often result in resource underutilization since allocated resources may remain idle, leading to inefficiencies.
+
+---
+
+#### **Container-Based Virtualization**:
+1. **Physical Server**:
+   - Runs a host operating system (OS) and a container runtime (e.g., Docker).
+2. **Containers**:
+   - Containers share the host OS kernel and only include minimal dependencies and system packages.
+   - Unlike VMs, containers do not include a full OS, making them lightweight and efficient.
+
+**Container Configurations**:
+- **Model 1**: Containers directly on a physical server.
+- **Model 2**: Containers on VMs (e.g., EC2 instances in AWS).
+
+**Benefits**:
+- **Lightweight**: Containers require fewer resources than VMs since they share the host OS kernel.
+- **Portable**: Applications packaged in containers can run seamlessly across different environments.
+- **Efficient**: Containers optimize resource utilization by eliminating the overhead of running multiple OS instances.
+
+---
+
+### Lifecycle of Containers in Docker
+
+1. **Writing a Dockerfile**:
+   - A Dockerfile is a script-like file that defines how the container is built, specifying the base image, dependencies, and commands.
+
+2. **Building the Image**:
+   - Use `docker build` to create a container image based on the Dockerfile.
+   - The image is a portable, reusable snapshot of the application and its dependencies.
+
+3. **Running the Container**:
+   - Use `docker run` to create and execute a running instance of the image.
+
+4. **Docker Engine**:
+   - The core runtime that manages the entire container lifecycle.
+   - It interprets Docker CLI commands to build, manage, and run containers.
+
+---
+
+### Key Takeaways
+
+1. **Hypervisor vs. Containers**:
+   - VMs include a full OS, while containers share the host OS, making containers more resource-efficient.
+   - Containers are faster to start and consume fewer resources compared to VMs.
+
+2. **Efficiency Gains**:
+   - Containers avoid the resource overhead of VMs, maximizing hardware utilization.
+
+3. **Single Point of Failure**:
+   - The Docker Engine is a critical component for managing containers. If it goes down, all container operations stop.
