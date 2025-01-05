@@ -1,0 +1,8 @@
+In 2013, Docker consists of 3 
+1. Docker CLI
+2. Rest API
+3. Docker Demon
+
+Containers are controlled by LXC 
+0.9 libcontainer directly interact with the linux namespace and cgroups
+
