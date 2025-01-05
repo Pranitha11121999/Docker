@@ -13,7 +13,7 @@ Container-Based Virtualization:
 Physical Server:
 Runs a host operating system (OS) and a container runtime (e.g., Docker).
 Containers:
-Containers share the host OS kernel and only include minimal dependencies and system packages.
+Containers share the host OS kernel and only include minimal dependencies and system packages this is required for isolation that separates the containers.
 Unlike VMs, containers do not include a full OS, making them lightweight and efficient.
 Container Configurations:
 
